@@ -106,8 +106,6 @@ app.get("/users/profile", userMiddleware.tokenVerify, async (req, res) => {
             name: userData.name
         })
     } catch (error) {
-        // const cookieName = Buffer.from("Authorization_Token", "utf-8").toString("base64").slice(0, Buffer.from("Authorization_Token", "utf-8").toString("base64").length - 2)
-        // res.clearCookie(cookieName)
         res.redirect("/users/profile")
     }
 })
@@ -171,5 +169,5 @@ app.get("*", (req, res) => {
 })
 
 app.listen(process.env.PORT, () => {
-    console.info("Running on http://localhost:5500")
+    console.info(`Running on http://localhost:${process.env.PORT}`)
 })
